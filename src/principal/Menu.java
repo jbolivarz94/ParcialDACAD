@@ -20,19 +20,21 @@ public class Menu {
 
         do {
             if (bandera) {
-                System.out.println(""
+                System.out.println("-------------------------------- \n"
                         + "1) Registrar Mecanico \n"
                         + "2) Registrar Motocicleta \n"
                         + "3) Listar Mecanicos\n"
                         + "4) Listar Motos \n"
-                        + "5) Ingresar Motocicleta De Bodega \n"
-                        + "6) Retirar Motocicleta A Bodega \n"
+                        + "5) Ingresar Motocicleta A Bodega \n"
+                        + "6) Retirar Motocicleta De Bodega \n"
                         + "7) Ingresar Motocicleta A Taller \n"
-                        + "8) Retirar Motocicleta A Taller \n"
-                        + "9) Salir");
+                        + "8) Retirar Motocicleta De Taller \n"
+                        + "9) Salir \n"
+                        + "-------------------------------------- ");
                 opcion = sc.nextInt();
                 switch (opcion) {
                     case 1:
+                        System.out.println("------------------------------------");
                         System.out.println("Ingresa La Cedula Del Mecanico:");
                         cedula = sc.next();
                         if (almacen.buscarMecanicoPorCedula(cedula).equalsIgnoreCase("")) {
@@ -58,6 +60,7 @@ public class Menu {
                         }
                         break;
                     case 2:
+                        System.out.println("------------------------------------");
                         System.out.println("Ingresa El Codigo De La Motocicleta:");
                         codigoMotocicleta = sc.next();
                         if (almacen.buscarMotocicletaPorCodigo(codigoMotocicleta).equalsIgnoreCase("")) {
@@ -76,6 +79,7 @@ public class Menu {
                         break;
 
                     case 4:
+                        System.out.println("------------------------------------");
                         System.out.println("¿Como Desea Listar La Informacion? \n"
                                 + "1) Por Marca \n"
                                 + "2) Por Cilindraje \n"
@@ -108,23 +112,27 @@ public class Menu {
                         }
                         break;
                     case 5:
+                        System.out.println("------------------------------------");
                         System.out.println("Ingrese El Codigo De La Motocicleta");
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        if (almacen.retirarMotoDeBodega(codigoMotocicleta, cedula)) {
-                            System.out.println("Se Ha Retirado La Motocicleta De La Bodega");
+                        String id;
+                        if ((id = almacen.buscarMecanicoPorCedula(cedula)) != null) {
+                            almacen.ingresarMotoABodega(codigoMotocicleta);
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");
                         }
                         break;
                     case 6:
+                        System.out.println("------------------------------------");
                         System.out.println("Ingrese El Codigo De La Motocicleta");
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        if (almacen.ingresarMotoABodega(codigoMotocicleta, cedula)) {
-                            System.out.println("Se Ha Ingresado La Motocicleta A Bodega");
+                        if ((id = almacen.buscarMecanicoPorCedula(cedula)) != null) {
+                            almacen.retirarMotoDeBodega(codigoMotocicleta);
+                            System.out.println("Se ah retirado la moto de la Bodega");
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");
                         }
@@ -134,7 +142,7 @@ public class Menu {
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        if (almacen.retirarMotoDeBodega(codigoMotocicleta, cedula)) {
+                        if (true) {
                             System.out.println("Se Ha Retirado La Motocicleta Del Taller");
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");
@@ -145,7 +153,7 @@ public class Menu {
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        if (almacen.ingresarMotoABodega(codigoMotocicleta, cedula)) {
+                        if (true) {
                             System.out.println("Se Ha Ingresado La Motocicleta Al Taller");
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");

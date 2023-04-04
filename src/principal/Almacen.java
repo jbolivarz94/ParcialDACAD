@@ -18,12 +18,10 @@ public class Almacen {
     }
 
     public String buscarMecanicoPorCedula(String cedula) {
-        System.out.println(archivoMec.buscarMecanicoPorId(cedula));
-        return archivoMec.buscarMecanicoPorId(cedula);
+        return archivoMec.obtenerUsuarioId(archivoMec.buscarMecanicoPorId(cedula));
     }
 
     public String buscarMotocicletaPorCodigo(String cedula) {
-        System.out.println(archivoMec.buscarMecanicoPorId(cedula));
         return archivoMec.buscarMecanicoPorId(cedula);
     }
     
@@ -61,12 +59,21 @@ public class Almacen {
         archivoMoto.listarMotos();
     }
 
-    public Boolean retirarMotoDeBodega(String codigoMoto, String cedulaMecanico) {
-        return false;
+    public void retirarMotoDeBodega(String codigoMoto) {
+        String registro = archivoMoto.buscarMoto(codigoMoto);
+        String aux[] = registro.split(";");
+        if(aux.length == 4 && aux[3] != null){
+            String auxiliar = String.join(";", aux[0], aux[1], aux[2], "");
+            archivoMoto.modificarMoto(auxiliar);
+        }else{
+            System.out.println("La moto no se encuentra en bodega");
+        }
     }
 
-    public Boolean ingresarMotoABodega(String codigoMoto, String cedulaMecanico) {
-        return false;
+    public void ingresarMotoABodega(String codigoMoto) {        
+        String registro = archivoMoto.buscarMoto(codigoMoto) + "bodega" + ";";
+        archivoMoto.modificarMoto(registro);
+        System.out.println("Moto ingresada a bodega");               
     }
 
     public Boolean retirarMotoDeTaller(String codigoMoto, String cedulaMecanico) {

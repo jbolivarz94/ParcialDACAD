@@ -1,4 +1,4 @@
-987;Suzuki;150;;
+987;Suzuki;150;bodega;
 98745;Honda;1000;
 1235;Honda;150;
 968574;YAMAHA;200;
