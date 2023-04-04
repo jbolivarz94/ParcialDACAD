@@ -17,8 +17,9 @@ public class Menu {
     public void menu() {
         String nombre, cedula, sexo, fechaNacimiento, registro;
         String codigoMotocicleta, marca, cilindraje;
-        if (bandera) {
-            do {
+
+        do {
+            if (bandera) {
                 System.out.println(""
                         + "1) Registrar Mecanico \n"
                         + "2) Registrar Motocicleta \n"
@@ -76,19 +77,31 @@ public class Menu {
 
                     case 4:
                         System.out.println("¿Como Desea Listar La Informacion? \n"
-                                + "1) Por Marca Y Cilindraje \n"
-                                + "2) En Bodega \n"
-                                + "3) En Taller \n");
+                                + "1) Por Marca \n"
+                                + "2) Por Cilindraje \n"
+                                + "3) En Bodega \n"
+                                + "4) En Taller \n"
+                                + "5) En Todas \n");
                         opcion = sc.nextInt();
                         switch (opcion) {
                             case 1:
-                                almacen.listarMotosPorMarcaCilindraje();
+                                System.out.println("Ingresa La Marca De La Moto");
+                                marca = sc.next();
+                                almacen.listarMotosPorMarca(marca);
                                 break;
                             case 2:
-                                almacen.listarMotosEnBodega();
+                                System.out.println("Ingresa El Cilindraje De La Moto");
+                                cilindraje = sc.next();
+                                almacen.listarMotosPorCilindraje(cilindraje);
                                 break;
                             case 3:
+                                almacen.listarMotosEnBodega();
+                                break;
+                            case 4:
                                 almacen.listarMotosEnTaller();
+                                break;
+                            case 5:
+                                almacen.listarTodasLasMotos();
                                 break;
                             default:
                                 System.out.println("Opcion Incorrecta");
@@ -143,8 +156,9 @@ public class Menu {
                         break;
                     default:
                         System.out.println("Opcion incorrecta");
+
                 }
-            } while (bandera);
-        }
+            }
+        } while (bandera);
     }
 }

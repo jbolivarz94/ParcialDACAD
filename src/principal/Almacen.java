@@ -5,12 +5,14 @@ import archivos.AccionesMoto;
 
 public class Almacen {
 
-    private AccionesMecanico archivoMec = new AccionesMecanico();
-    private AccionesMoto archivoMoto = new AccionesMoto();
+    private final AccionesMecanico archivoMec = new AccionesMecanico();
+    private final AccionesMoto archivoMoto = new AccionesMoto();
 
     public Almacen() {
+        
     }
 
+    //Probado
     public Boolean registrarMecanico(String mecanico) {
         return archivoMec.registrarMecanico(mecanico);
     }
@@ -24,19 +26,26 @@ public class Almacen {
         System.out.println(archivoMec.buscarMecanicoPorId(cedula));
         return archivoMec.buscarMecanicoPorId(cedula);
     }
-
+    
+    //Probado
     public void registrarMotocicleta(String motocicleta) {
         archivoMoto.registrarMoto(motocicleta);
     }
 
+    //Probado
     public void listarMecanicos() {
         System.out.println("Listado De Mecanicos");
         archivoMec.listarUsuarios();
     }
+    
+    //Probado
+    public void listarMotosPorMarca(String marca) {
+        archivoMoto.listarMotosPorMarca(marca);
+    }
 
-    public void listarMotosPorMarcaCilindraje() {
-        System.out.println("Listado De Motos Por Marca Y Cilindraje");
-        archivoMoto.listarMotos();
+    //Probado
+    public void listarMotosPorCilindraje(String cilindraje) {
+        archivoMoto.listarMotosPorCilindraje(cilindraje);
     }
 
     public void listarMotosEnBodega() {
@@ -45,6 +54,11 @@ public class Almacen {
 
     public void listarMotosEnTaller() {
         System.out.println("Listado De Motos En Taller");
+    }
+
+    //Probado
+    public void listarTodasLasMotos() {
+        archivoMoto.listarMotos();
     }
 
     public Boolean retirarMotoDeBodega(String codigoMoto, String cedulaMecanico) {
