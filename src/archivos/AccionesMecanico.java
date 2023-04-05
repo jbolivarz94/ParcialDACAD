@@ -23,15 +23,7 @@ public class AccionesMecanico {
     }
 
     public String obtenerUsuarioId(String line) {
-        int i = 0, j;
-        while (!line.substring(i, i + 1).equals(";")) { //Lee la linea hasta encontrarte con ;
-            i++;
-        }
-        j = i + 1;
-        while (!line.substring(j, j + 1).equals(";")) { //Lee la linea hasta encontrarte con ;
-            j++;
-        }
-        return line.substring(i + 1, j);
+        return line.split(";")[1];
     }
 
     public String buscarMecanicoPorId(String id) {
