@@ -1,4 +1,5 @@
-987;Suzuki;150;bodega;
-98745;Honda;1000;
-1235;Honda;150;
-968574;YAMAHA;200;
+987;Suzuki;150;Bodega;
+98745;Honda;1000;Taller;
+1235;Honda;150;bodega;
+968574;YAMAHA;200;Taller;
+8547;AKT;125;Bodega;

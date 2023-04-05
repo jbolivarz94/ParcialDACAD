@@ -18,7 +18,7 @@ public class Almacen {
     }
 
     public String buscarMecanicoPorCedula(String cedula) {
-        return archivoMec.obtenerUsuarioId(archivoMec.buscarMecanicoPorId(cedula));
+        return archivoMec.buscarMecanicoPorId(cedula);
     }
 
     public String buscarMotocicletaPorCodigo(String cedula) {
@@ -46,12 +46,14 @@ public class Almacen {
         archivoMoto.listarMotosPorCilindraje(cilindraje);
     }
 
+    //Probado
     public void listarMotosEnBodega() {
-        System.out.println("Listado De Motos En Bodega");
+        archivoMoto.listarMotoEnBodega();
     }
 
+    //Probado
     public void listarMotosEnTaller() {
-        System.out.println("Listado De Motos En Taller");
+        archivoMoto.listarMotoEnTaller();
     }
 
     //Probado

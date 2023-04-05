@@ -102,7 +102,7 @@ public class AccionesMoto {
                 fileBufferedWriter = new BufferedWriter(new FileWriter(temp, false));
                 String line, idLine;
                 while ((line = fileBufferedReader.readLine()) != null) {
-                    idLine = obtenerMarca(line);
+                    idLine = obtenerId(line);
                     if (!idLine.equals(id)) {
                         fileBufferedWriter.write(line + "\r\n");
                     }
@@ -128,8 +128,8 @@ public class AccionesMoto {
                 fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
                 String line, marcaLine;
                 while ((line = fileBufferedReader.readLine()) != null) {
-                    marcaLine = obtenerCilindraje(line);
-                    if (marcaLine.equalsIgnoreCase(cilindraje)) {
+                    String[] partes = line.split(";");
+                    if (partes[2].equalsIgnoreCase(cilindraje)) {
                         System.out.println(line);
                     }
                 }
@@ -149,8 +149,50 @@ public class AccionesMoto {
                 fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
                 String line, marcaLine;
                 while ((line = fileBufferedReader.readLine()) != null) {
-                    marcaLine = obtenerMarca(line);
-                    if (marcaLine.equalsIgnoreCase(marca)) {
+                    String[] partes = line.split(";");
+                    if (partes[1].equalsIgnoreCase(marca)) {
+                        System.out.println(line);
+                    }
+                }
+                fileBufferedReader.close();
+            } else {
+                JOptionPane.showMessageDialog(null, "Archivo vacio");
+            }
+        } catch (HeadlessException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Probado
+    public void listarMotoEnTaller() {
+        try {
+            if (fileMotos.exists()) {
+                fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
+                String line, marcaLine;
+                while ((line = fileBufferedReader.readLine()) != null) {
+                    String[] partes = line.split(";");
+                    if (partes[3].equalsIgnoreCase("Taller")) {
+                        System.out.println(line);
+                    }
+                }
+                fileBufferedReader.close();
+            } else {
+                JOptionPane.showMessageDialog(null, "Archivo vacio");
+            }
+        } catch (HeadlessException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Probado
+    public void listarMotoEnBodega() {
+        try {
+            if (fileMotos.exists()) {
+                fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
+                String line, marcaLine;
+                while ((line = fileBufferedReader.readLine()) != null) {
+                    String[] partes = line.split(";");
+                    if (partes[3].equalsIgnoreCase("Bodega")) {
                         System.out.println(line);
                     }
                 }
@@ -182,17 +224,6 @@ public class AccionesMoto {
     }
 
     //Probado
-    public String obtenerCilindraje(String line) {
-        String[] partes = line.split(";");
-        return partes[2];
-    }
-
-    //Probado
-    public String obtenerMarca(String line) {
-        String[] partes = line.split(";");
-        return partes[1];
-    }
-
     public String obtenerId(String line) {
         String[] partes = line.split(";");
         return partes[0];
