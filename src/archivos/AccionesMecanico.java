@@ -11,8 +11,6 @@ import javax.swing.JOptionPane;
 public class AccionesMecanico {
 
     private File fileMecanicos = new File("tb_mecanico.txt");
-    private File fileBodega = new File("tb_bodega.txt");
-    private File fileTaller = new File("tb_taller.txt");
     private File temp = new File("temp.txt");
     private BufferedWriter tempBufferedWriter;
     private BufferedReader fileBufferedReader;

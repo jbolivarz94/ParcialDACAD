@@ -163,7 +163,7 @@ public class Menu {
                         break;
                     default:
                         System.out.println("Opcion incorrecta");
-
+                        break;
                 }
             }
         } while (bandera);

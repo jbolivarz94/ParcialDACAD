@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package archivos;
 
 import java.awt.HeadlessException;
@@ -26,6 +22,7 @@ public class AccionesMoto {
     private BufferedWriter fileBufferedWriter;
 
     public AccionesMoto() {
+        
     }
 
     public void modificarMoto(String registro) {
@@ -126,7 +123,7 @@ public class AccionesMoto {
         try {
             if (fileMotos.exists()) {
                 fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
-                String line, marcaLine;
+                String line;
                 while ((line = fileBufferedReader.readLine()) != null) {
                     String[] partes = line.split(";");
                     if (partes[2].equalsIgnoreCase(cilindraje)) {
@@ -147,7 +144,7 @@ public class AccionesMoto {
         try {
             if (fileMotos.exists()) {
                 fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
-                String line, marcaLine;
+                String line;
                 while ((line = fileBufferedReader.readLine()) != null) {
                     String[] partes = line.split(";");
                     if (partes[1].equalsIgnoreCase(marca)) {
@@ -168,7 +165,7 @@ public class AccionesMoto {
         try {
             if (fileMotos.exists()) {
                 fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
-                String line, marcaLine;
+                String line;
                 while ((line = fileBufferedReader.readLine()) != null) {
                     String[] partes = line.split(";");
                     if (partes[3].equalsIgnoreCase("Taller")) {
@@ -189,7 +186,7 @@ public class AccionesMoto {
         try {
             if (fileMotos.exists()) {
                 fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
-                String line, marcaLine;
+                String line;
                 while ((line = fileBufferedReader.readLine()) != null) {
                     String[] partes = line.split(";");
                     if (partes[3].equalsIgnoreCase("Bodega")) {
