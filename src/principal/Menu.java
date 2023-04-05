@@ -117,8 +117,7 @@ public class Menu {
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        String id;
-                        if ((id = almacen.buscarMecanicoPorCedula(cedula)) != null) {
+                        if (!almacen.buscarMecanicoPorCedula(cedula).equalsIgnoreCase("")) {
                             almacen.ingresarMotoABodega(codigoMotocicleta);
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");
@@ -130,7 +129,7 @@ public class Menu {
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        if ((id = almacen.buscarMecanicoPorCedula(cedula)) != null) {
+                        if (!almacen.buscarMecanicoPorCedula(cedula).equalsIgnoreCase("")) {
                             almacen.retirarMotoDeBodega(codigoMotocicleta);
                             System.out.println("Se ah retirado la moto de la Bodega");
                         } else {

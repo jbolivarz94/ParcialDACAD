@@ -73,7 +73,7 @@ public class Almacen {
     }
 
     public void ingresarMotoABodega(String codigoMoto) {        
-        String registro = archivoMoto.buscarMoto(codigoMoto) + "bodega" + ";";
+        String registro = archivoMoto.buscarMoto(codigoMoto) + "Bodega" + ";";
         archivoMoto.modificarMoto(registro);
         System.out.println("Moto ingresada a bodega");               
     }
