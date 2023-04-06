@@ -69,7 +69,7 @@ public class Menu {
                             marca = sc.next();
                             System.out.println("Ingrese El Cilindraje De La Motocicleta");
                             cilindraje = sc.next();
-                            registro = codigoMotocicleta + ";" + marca + ";" + cilindraje + ";;";
+                            registro = codigoMotocicleta + ";" + marca + ";" + cilindraje + "; ;";
                             almacen.registrarMotocicleta(registro);
                         } else {
                             System.out.println("Este Codigo Ya Existe En La Base De Datos");

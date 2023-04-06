@@ -17,10 +17,12 @@ public class Almacen {
         return archivoMec.registrarMecanico(mecanico);
     }
 
+    //Probado
     public String buscarMecanicoPorCedula(String cedula) {
         return archivoMec.buscarMecanicoPorId(cedula);
     }
 
+    //Probado
     public String buscarMotocicletaPorCodigo(String cedula) {
         return archivoMec.buscarMecanicoPorId(cedula);
     }
@@ -61,6 +63,7 @@ public class Almacen {
         archivoMoto.listarMotos();
     }
 
+    //Probado
     public void retirarMotoDeBodega(String codigoMoto) {
         String registro = archivoMoto.buscarMoto(codigoMoto);
         String aux[] = registro.split(";");
@@ -73,6 +76,7 @@ public class Almacen {
         }
     }
 
+    //Probado
     public void ingresarMotoABodega(String codigoMoto) {
         String registro = archivoMoto.buscarMoto(codigoMoto);
         String aux[] = registro.split(";");
@@ -85,6 +89,7 @@ public class Almacen {
         }
     }
 
+    //Probado
     public void retirarMotoDeTaller(String codigoMoto) {
         String registro = archivoMoto.buscarMoto(codigoMoto);
         String aux[] = registro.split(";");
@@ -97,6 +102,7 @@ public class Almacen {
         }
     }
 
+    //Probado
     public void ingresarMotoATaller(String codigoMoto) {
         String registro = archivoMoto.buscarMoto(codigoMoto);
         String aux[] = registro.split(";");

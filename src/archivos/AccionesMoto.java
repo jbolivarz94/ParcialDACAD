@@ -25,6 +25,7 @@ public class AccionesMoto {
 
     }
 
+    //Probado
     public void modificarMoto(String registro) {
         try {
             if (fileMotos.exists()) {
@@ -64,6 +65,7 @@ public class AccionesMoto {
         }
     }
 
+    //Probado
     public String buscarMoto(String id) {
         String registro = "";
         boolean sw = false;
@@ -79,33 +81,6 @@ public class AccionesMoto {
                     }
                 }
                 fileBufferedReader.close();
-            } else {
-                JOptionPane.showMessageDialog(null, "Archivo vacio");
-            }
-        } catch (HeadlessException | IOException e) {
-            e.printStackTrace();
-        }
-        return registro;
-    }
-
-    public String eliminarMoto(String id) {
-        String registro = "";
-        try {
-            if (fileMotos.exists()) {
-                fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
-                fileBufferedWriter = new BufferedWriter(new FileWriter(temp, false));
-                String line, idLine;
-                while ((line = fileBufferedReader.readLine()) != null) {
-                    idLine = obtenerId(line);
-                    if (!idLine.equals(id)) {
-                        fileBufferedWriter.write(line + "\r\n");
-                    }
-                }
-
-                fileBufferedReader.close();
-                fileMotos.delete();
-                fileBufferedWriter.close();
-                temp.renameTo(fileMotos);
             } else {
                 JOptionPane.showMessageDialog(null, "Archivo vacio");
             }
