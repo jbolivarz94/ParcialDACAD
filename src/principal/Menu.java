@@ -1,5 +1,6 @@
 package principal;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -52,7 +53,7 @@ public class Menu {
                                 } else {
                                     System.out.println("Se Presento Un Error Al Intentar Registrar El Mecanico");
                                 }
-                            } catch (Exception e) {
+                            } catch (ParseException e) {
                                 System.out.println("Formato No Valido : " + e.getMessage());
                             }
                         } else {
@@ -68,7 +69,7 @@ public class Menu {
                             marca = sc.next();
                             System.out.println("Ingrese El Cilindraje De La Motocicleta");
                             cilindraje = sc.next();
-                            registro = codigoMotocicleta + ";" + marca + ";" + cilindraje + ";";
+                            registro = codigoMotocicleta + ";" + marca + ";" + cilindraje + ";;";
                             almacen.registrarMotocicleta(registro);
                         } else {
                             System.out.println("Este Codigo Ya Existe En La Base De Datos");

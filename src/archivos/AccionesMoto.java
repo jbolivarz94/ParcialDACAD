@@ -22,27 +22,24 @@ public class AccionesMoto {
     private BufferedWriter fileBufferedWriter;
 
     public AccionesMoto() {
-        
+
     }
 
     public void modificarMoto(String registro) {
         try {
             if (fileMotos.exists()) {
-                String aux[] = registro.split(";");
-                String codigo = aux[0];
                 fileBufferedReader = new BufferedReader(new FileReader(fileMotos));
                 tempBufferedWriter = new BufferedWriter(new FileWriter(temp, false));
-                String line, idLine;
+                String line;
                 while ((line = fileBufferedReader.readLine()) != null) {
                     String reg[] = line.split(";");
-                    idLine = reg[0];
-                    if (!idLine.equals(codigo)) {
+                    String aux[] = registro.split(";");
+                    if (!reg[0].equalsIgnoreCase(aux[0])) {
                         tempBufferedWriter.write(line + "\r\n");
                     } else {
                         tempBufferedWriter.write(registro + "\r\n");
                     }
                 }
-
                 fileBufferedReader.close();
                 fileMotos.delete();
                 tempBufferedWriter.close();
