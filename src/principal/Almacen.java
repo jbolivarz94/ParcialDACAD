@@ -67,6 +67,7 @@ public class Almacen {
         if (!aux[3].equalsIgnoreCase(" ") && aux[3].equalsIgnoreCase("BODEGA")) {
             String auxiliar = aux[0] + ";" + aux[1] + ";" + aux[2] + "; ;";
             archivoMoto.modificarMoto(auxiliar.toUpperCase());
+            System.out.println("Moto Retirada De Bodega");
         } else {
             System.out.println("No Se Puede Realizar Esta Operacion Basado En Estos Criterios");
         }
@@ -78,33 +79,34 @@ public class Almacen {
         if (aux[3].equalsIgnoreCase(" ") && !aux[3].equalsIgnoreCase("BODEGA")) {
             registro = aux[0] + ";" + aux[1] + ";" + aux[2] + ";BOdeGa;";
             archivoMoto.modificarMoto(registro.toUpperCase());
+            System.out.println("Moto Ingresada A Bodega");
         } else {
             System.out.println("No Se Puede Realizar Esta Operacion Basado En Estos Criterios");
         }
-        System.out.println("Moto ingresada a bodega");
     }
 
-    public void retirarMotoDeTaller(String codigoMoto, String cedulaMecanico) {
+    public void retirarMotoDeTaller(String codigoMoto) {
         String registro = archivoMoto.buscarMoto(codigoMoto);
         String aux[] = registro.split(";");
-        if (!aux[3].equalsIgnoreCase(" ") && aux[3].equalsIgnoreCase("BODEGA")) {
+        if (!aux[3].equalsIgnoreCase(" ") && aux[3].equalsIgnoreCase("TALLER")) {
             String auxiliar = aux[0] + ";" + aux[1] + ";" + aux[2] + "; ;";
             archivoMoto.modificarMoto(auxiliar.toUpperCase());
+            System.out.println("Moto Retirada Del Taller");
         } else {
             System.out.println("No Se Puede Realizar Esta Operacion Basado En Estos Criterios");
         }
     }
 
-    public void ingresarMotoATaller(String codigoMoto, String cedulaMecanico) {
+    public void ingresarMotoATaller(String codigoMoto) {
         String registro = archivoMoto.buscarMoto(codigoMoto);
         String aux[] = registro.split(";");
-        if (aux[3].equalsIgnoreCase(" ") && !aux[3].equalsIgnoreCase("BODEGA")) {
-            registro = aux[0] + ";" + aux[1] + ";" + aux[2] + ";BOdeGa;";
+        if (aux[3].equalsIgnoreCase(" ") && !aux[3].equalsIgnoreCase("TALLER")) {
+            registro = aux[0] + ";" + aux[1] + ";" + aux[2] + ";TALLER;";
             archivoMoto.modificarMoto(registro.toUpperCase());
+            System.out.println("Moto Ingresada Al Taller");
         } else {
             System.out.println("No Se Puede Realizar Esta Operacion Basado En Estos Criterios");
         }
-        System.out.println("Moto ingresada a bodega");
     }
 
 }

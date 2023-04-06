@@ -132,29 +132,30 @@ public class Menu {
                         cedula = sc.next();
                         if (!almacen.buscarMecanicoPorCedula(cedula).equalsIgnoreCase("")) {
                             almacen.retirarMotoDeBodega(codigoMotocicleta);
-                            System.out.println("Se ah retirado la moto de la Bodega");
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");
                         }
                         break;
                     case 7:
+                        System.out.println("------------------------------------");
                         System.out.println("Ingrese El Codigo De La Motocicleta");
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        if (true) {
-                            System.out.println("Se Ha Retirado La Motocicleta Del Taller");
+                        if (!almacen.buscarMecanicoPorCedula(cedula).equalsIgnoreCase("")) {
+                            almacen.ingresarMotoATaller(codigoMotocicleta);
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");
                         }
                         break;
                     case 8:
+                        System.out.println("------------------------------------");
                         System.out.println("Ingrese El Codigo De La Motocicleta");
                         codigoMotocicleta = sc.next();
                         System.out.println("Ingrese La Cedula Del Mecanico");
                         cedula = sc.next();
-                        if (true) {
-                            System.out.println("Se Ha Ingresado La Motocicleta Al Taller");
+                        if (!almacen.buscarMecanicoPorCedula(cedula).equalsIgnoreCase("")) {
+                            almacen.retirarMotoDeTaller(codigoMotocicleta);
                         } else {
                             System.out.println("No Se Encontraron Registros Basados En Estos Criterios");
                         }
